@@ -25,7 +25,7 @@ namespace Intuit.Ipp.Core
 
     /// <summary>
     /// Interface, that can provide <see cref="IppConfiguration"/> from file for example.
-    /// <seealso cref="JsonFileConfigurationProvider"/>
+    /// <seealso cref="MemoryConfigurationProvider"/>
     /// </summary>
     public interface IConfigurationProvider
     {
