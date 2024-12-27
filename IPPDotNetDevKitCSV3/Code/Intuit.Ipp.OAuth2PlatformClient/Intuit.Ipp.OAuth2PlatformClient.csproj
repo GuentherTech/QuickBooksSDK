@@ -8,10 +8,6 @@
   <ItemGroup>
     <None Remove="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Serilog" Version="2.10.0" />
-
-  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Intuit.Ipp.OAuth2PlatformClient.Diagnostics\Intuit.Ipp.OAuth2PlatformClient.Diagnostics.csproj" PrivateAssets="all" />
