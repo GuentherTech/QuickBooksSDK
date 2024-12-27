@@ -186,30 +186,8 @@ namespace Intuit.Ipp.Core
         public static Diagnostics.AdvancedLogging GetAdvancedLogging(ServiceContext serviceContext)
         {
             Diagnostics.AdvancedLogging requestLogger;
-            if (serviceContext.IppConfiguration != null &&
-                serviceContext.IppConfiguration.AdvancedLogger != null &&
-                serviceContext.IppConfiguration.AdvancedLogger.RequestAdvancedLog != null)
-            {
-                if (serviceContext.IppConfiguration.AdvancedLogger.RequestAdvancedLog.CustomLogger != null)
-                {
-                    //Use custom logger
-                    requestLogger = new Diagnostics.AdvancedLogging(serviceContext.IppConfiguration.AdvancedLogger.RequestAdvancedLog.CustomLogger);
-                }
-                else
-                {
-                    requestLogger = new Diagnostics.AdvancedLogging(
-                    serviceContext.IppConfiguration.AdvancedLogger.RequestAdvancedLog.EnableSerilogRequestResponseLoggingForDebug,
-                    serviceContext.IppConfiguration.AdvancedLogger.RequestAdvancedLog.EnableSerilogRequestResponseLoggingForTrace,
-                    serviceContext.IppConfiguration.AdvancedLogger.RequestAdvancedLog.EnableSerilogRequestResponseLoggingForConsole,
-                    serviceContext.IppConfiguration.AdvancedLogger.RequestAdvancedLog.EnableSerilogRequestResponseLoggingForFile,
-                    serviceContext.IppConfiguration.AdvancedLogger.RequestAdvancedLog.ServiceRequestLoggingLocationForFile);
-
-                }
-            }
-            else
-            {
-                requestLogger = new Diagnostics.AdvancedLogging(enableSerilogRequestResponseLoggingForDebug: true, enableSerilogRequestResponseLoggingForTrace: true, enableSerilogRequestResponseLoggingForConsole: true, enableSerilogRequestResponseLoggingForFile: false, serviceRequestLoggingLocationForFile: null);
-            }
+            //Use custom logger
+            requestLogger = new Diagnostics.AdvancedLogging(serviceContext.IppConfiguration.AdvancedLogger.RequestAdvancedLog.CustomLogger);
 
             return requestLogger;
         }

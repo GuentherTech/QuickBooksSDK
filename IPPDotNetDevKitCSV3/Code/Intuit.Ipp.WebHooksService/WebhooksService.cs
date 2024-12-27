@@ -172,7 +172,7 @@ namespace Intuit.Ipp.WebhooksService
         /// <returns>Returns string verifier token object.</returns>
         private string GetVerfierToken()
         {
-            this.IppConfiguration = new JsonFileConfigurationProvider().GetConfiguration();
+            this.IppConfiguration = new MemoryConfigurationProvider(new IppConfiguration()).GetConfiguration();
             this.IppConfiguration.Logger.CustomLogger.Log(TraceLevel.Info, "Called GetVerifierToken method.");
             string verifierToken = this.IppConfiguration.VerifierToken.Value;
 

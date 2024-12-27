@@ -125,14 +125,14 @@ namespace Intuit.Ipp.Core
         /// <param name="realmId">The realm id.</param>
         /// <param name="serviceType">Service Type - QBO/QB.</param>
         /// <param name="requestValidator">The request validate.</param>
-        /// <param name="configReader">The config reader, if <see langword="null"/>, <see cref="JsonFileConfigurationProvider" /> will be used</param>
+        /// <param name="configReader">The config reader, if <see langword="null"/>, <see cref="MemoryConfigurationProvider" /> will be used</param>
         /// <returns>Returns ServiceContext object.</returns>
         /// <exception cref="Intuit.Ipp.Exception.IdsException">If arguments are null or empty.</exception>
         /// <exception cref="Intuit.Ipp.Exception.InvalidRealmException">If realm id is invalid.</exception>
         /// <exception cref="Intuit.Ipp.Exception.InvalidTokenException">If the token is invalid.</exception>
         public ServiceContext(string realmId, IntuitServicesType serviceType, IRequestValidator requestValidator = null, IConfigurationProvider configReader = null)
         {
-            this.IppConfiguration = (configReader ?? new JsonFileConfigurationProvider()).GetConfiguration();
+            this.IppConfiguration = (configReader ?? new MemoryConfigurationProvider(new IppConfiguration())).GetConfiguration();
 
             // Validate Parameters
             if (string.IsNullOrWhiteSpace(realmId))
