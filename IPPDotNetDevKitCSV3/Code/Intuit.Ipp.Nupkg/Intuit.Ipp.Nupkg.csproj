@@ -9,7 +9,7 @@
     <PackageId>QuickBooksSDK</PackageId>
     <AssemblyName>QuickBooksSDK</AssemblyName>
     <DocumentationFile>$(BaseOutputPath)$(AssemblyName).xml</DocumentationFile>
-    <MainVersion>1.0.0.0</MainVersion>
+    <MainVersion>1.1.0.0</MainVersion>
     <PackageVersionSuffix>pre</PackageVersionSuffix>
     <Version>$(MainVersion)-$(PackageVersionSuffix)</Version>
     <Version>$(MainVersion)</Version>
